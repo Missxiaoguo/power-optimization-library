@@ -1,4 +1,4 @@
-module github.com/intel/power-optimization-library
+module github.com/Missxiaoguo/power-optimization-library
 
 go 1.22.3
 
