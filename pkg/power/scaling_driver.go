@@ -22,7 +22,7 @@ const (
 	availGovFile   = "cpufreq/scaling_available_governors"
 	eppFile        = "cpufreq/energy_performance_preference"
 
-	defaultEpp      = "default"
+	defaultEpp      = "power"
 	defaultGovernor = cpuPolicyPowersave
 
 	cpuPolicyPerformance  = "performance"
@@ -175,6 +175,7 @@ func (cpu *cpuImpl) setDriverValues(powerProfile Profile) error {
 		return fmt.Errorf("failed to set governor for cpu %d: %w", cpu.id, err)
 	}
 	if powerProfile.Epp() != "" {
+		//fmt.Printf("ANGIE - setting EPP value for cpu %d: %s\n", cpu.id, powerProfile.Epp())
 		if err := cpu.writeEppValue(powerProfile.Epp()); err != nil {
 			return fmt.Errorf("failed to set EPP value for cpu %d: %w", cpu.id, err)
 		}
