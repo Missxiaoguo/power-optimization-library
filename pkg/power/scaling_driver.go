@@ -166,7 +166,7 @@ func (cpu *cpuImpl) updateFrequencies() error {
 	if cpu.pool.GetPowerProfile() != nil {
 		return cpu.setDriverValues(cpu.pool.GetPowerProfile())
 	}
-	return cpu.setDriverValues(defaultPowerProfile)
+	return nil
 }
 
 // setDriverValues is an entrypoint to power governor feature consolidation
